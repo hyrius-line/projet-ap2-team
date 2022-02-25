@@ -9,13 +9,10 @@ import java.sql.Statement;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 
 public class PrimaryController {
 
-    @FXML
-    private Label Salutation;
     @FXML
     private TextArea C_login;
     @FXML
@@ -44,32 +41,31 @@ public class PrimaryController {
 
                     //étape 3: créer l'objet statement 
                     Statement stmt = conn.createStatement();
-                    String sql = "SELECT ag_matricule, ag_login, ag_password, ag_prenom, ag_nom FROM agents";
+                    String sql = "SELECT ag_matricule, ag_login, ag_password, ag_prenom, ag_nom FROM agents WHERE";
                     ResultSet res = stmt.executeQuery(sql);
                     
-                    while(res.next()){
+                    res.next();
                         //Récupérer par nom de colonne
-                        String matricule = res.getString("ag_matricule");
-                        String login = res.getString("ag_login");
-                        String mdp = res.getString("ag_password");
-                        String prenom = res.getString("ag_prenom");
-                        String nom = res.getString("ag_nom");
+                        Donnee.matricule = res.getString("ag_matricule");
+                        Donnee.login = res.getString("ag_login");
+                        Donnee.mdp = res.getString("ag_password");
+                        Donnee.prenom = res.getString("ag_prenom");
+                        Donnee.nom = res.getString("ag_nom");
 
-                        if (C_login.getText().equals(login) && C_mdp.getText().equals(mdp)) { // pas sur de ca
+                        if (C_login.getText().equals(Donnee.login) && C_mdp.getText().equals(Donnee.mdp)) {
 
                             //Afficher les valeurs
-                            System.out.print(", matricule: " + matricule);
-                            System.out.print(", login: " + login);
-                            System.out.print(", password: " + mdp);
-                            System.out.print(", prénom: " + prenom);
-                            System.out.print(", nom: " + nom);
+                            System.out.print(", matricule: " + Donnee.matricule);
+                            System.out.print(", login: " + Donnee.login);
+                            System.out.print(", password: " + Donnee.mdp);
+                            System.out.print(", prénom: " + Donnee.prenom);
+                            System.out.print(", nom: " + Donnee.nom);
                             
                             App.setRoot("secondary");
-                            Salutation.setText("coucou " + prenom +" "+ nom);
                         }
 
-                }
-            } 
+                } 
+            
                 
             } catch (SQLException ex) {
                 ex.printStackTrace();
