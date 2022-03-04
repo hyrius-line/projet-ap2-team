@@ -6,5 +6,4 @@ public class Donnee {
     public static String mdp;
     public static String prenom;
     public static String nom;
-
 }

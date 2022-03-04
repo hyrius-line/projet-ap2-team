@@ -41,7 +41,7 @@ public class PrimaryController {
 
                     //étape 3: créer l'objet statement 
                     Statement stmt = conn.createStatement();
-                    String sql = "SELECT ag_matricule, ag_login, ag_password, ag_prenom, ag_nom FROM agents WHERE";
+                    String sql = "SELECT ag_matricule, ag_login, ag_password, ag_prenom, ag_nom FROM agents WHERE ag_login='"+C_login.getText()+"' AND ag_password='"+C_login.getText()+"' IS NOT NULL";
                     ResultSet res = stmt.executeQuery(sql);
                     
                     res.next();
@@ -66,7 +66,6 @@ public class PrimaryController {
 
                 } 
             
-                
             } catch (SQLException ex) {
                 ex.printStackTrace();
             }
