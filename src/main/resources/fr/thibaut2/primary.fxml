@@ -17,7 +17,7 @@
          <VBox.margin>
             <Insets bottom="20.0" />
          </VBox.margin></Label>
-      <Label fx:id="Salutation" maxWidth="1.7976931348623157E308" prefHeight="40.0" prefWidth="59.0" text="user :">
+      <Label maxWidth="1.7976931348623157E308" prefHeight="40.0" prefWidth="59.0" text="user :">
          <VBox.margin>
             <Insets bottom="-10.0" top="30.0" />
          </VBox.margin>
@@ -32,7 +32,12 @@
             <Insets />
          </VBox.margin>
       </TextArea>
-      <Label fx:id="Salutation1" layoutX="143.0" layoutY="242.0" maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="240.0" text="mdp :">
+      <Label fx:id="E_login" maxWidth="1.7976931348623157E308" prefHeight="40.0" prefWidth="59.0" text="">
+         <VBox.margin>
+            <Insets bottom="-10.0" top="-10.0" />
+         </VBox.margin>
+      </Label>
+      <Label layoutX="143.0" layoutY="242.0" maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="240.0" text="mdp :">
          <font>
             <Font size="20.0" />
          </font>
@@ -45,6 +50,11 @@
             <Insets />
          </VBox.margin>
       </TextArea>
+      <Label fx:id="E_mdp" maxWidth="1.7976931348623157E308" prefHeight="40.0" prefWidth="59.0" text="">
+         <VBox.margin>
+            <Insets bottom="-10.0" top="-10.0" />
+         </VBox.margin>
+      </Label>
       <Button fx:id="primaryButton" onAction="#switchToSecondary" prefHeight="38.0" prefWidth="152.0" text="connexion">
          <VBox.margin>
             <Insets top="40.0" />

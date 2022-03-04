@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import javafx.scene.control.Label;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
@@ -17,6 +18,11 @@ public class PrimaryController {
     private TextArea C_login;
     @FXML
     private TextArea C_mdp;
+    @FXML
+    private Label E_login;
+    @FXML
+    private Label E_mdp;
+
 
 
 
@@ -44,7 +50,7 @@ public class PrimaryController {
                     String sql = "SELECT ag_matricule, ag_login, ag_password, ag_prenom, ag_nom FROM agents WHERE ag_login='"+C_login.getText()+"' AND ag_password='"+C_login.getText()+"' IS NOT NULL";
                     ResultSet res = stmt.executeQuery(sql);
                     
-                    res.next();
+                    if (res.next()) {
                         //Récupérer par nom de colonne
                         Donnee.matricule = res.getString("ag_matricule");
                         Donnee.login = res.getString("ag_login");
@@ -62,7 +68,13 @@ public class PrimaryController {
                             System.out.print(", nom: " + Donnee.nom);
                             
                             App.setRoot("secondary");
-                        }
+                            
+                        } 
+                        
+                    } else {
+                        E_login.setText("identifiant incorrect");
+                        E_mdp.setText("identifiant incorrect");
+                    }
 
                 } 
             
