@@ -19,9 +19,7 @@ public class PrimaryController {
     @FXML
     private TextArea C_mdp;
     @FXML
-    private Label E_login;
-    @FXML
-    private Label E_mdp;
+    private Label Erreur;
 
 
 
@@ -72,8 +70,7 @@ public class PrimaryController {
                         } 
                         
                     } else {
-                        E_login.setText("identifiant incorrect");
-                        E_mdp.setText("identifiant incorrect");
+                        Erreur.setText("identifiant incorrect");
                     }
 
                 } 
